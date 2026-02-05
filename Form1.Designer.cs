@@ -49,6 +49,7 @@
             this.imgCat.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.imgCat.TabIndex = 0;
             this.imgCat.TabStop = false;
+            this.imgCat.Click += new System.EventHandler(this.imgCat_Click);
             // 
             // imgDog
             // 
@@ -59,6 +60,7 @@
             this.imgDog.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.imgDog.TabIndex = 1;
             this.imgDog.TabStop = false;
+            this.imgDog.Click += new System.EventHandler(this.imgDog_Click);
             // 
             // imgPig
             // 
@@ -69,6 +71,7 @@
             this.imgPig.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.imgPig.TabIndex = 2;
             this.imgPig.TabStop = false;
+            this.imgPig.Click += new System.EventHandler(this.imgPig_Click);
             // 
             // btnPlay
             // 
