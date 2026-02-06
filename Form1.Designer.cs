@@ -42,6 +42,7 @@
             // 
             // imgCat
             // 
+            this.imgCat.Enabled = false;
             this.imgCat.Image = ((System.Drawing.Image)(resources.GetObject("imgCat.Image")));
             this.imgCat.Location = new System.Drawing.Point(21, 68);
             this.imgCat.Name = "imgCat";
@@ -53,6 +54,7 @@
             // 
             // imgDog
             // 
+            this.imgDog.Enabled = false;
             this.imgDog.Image = ((System.Drawing.Image)(resources.GetObject("imgDog.Image")));
             this.imgDog.Location = new System.Drawing.Point(400, 68);
             this.imgDog.Name = "imgDog";
@@ -64,6 +66,7 @@
             // 
             // imgPig
             // 
+            this.imgPig.Enabled = false;
             this.imgPig.Image = ((System.Drawing.Image)(resources.GetObject("imgPig.Image")));
             this.imgPig.Location = new System.Drawing.Point(223, 68);
             this.imgPig.Name = "imgPig";
@@ -117,7 +120,6 @@
             this.Controls.Add(this.imgCat);
             this.Name = "Form1";
             this.Text = "Sounds, Counting and Random Numbers";
-            this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.imgCat)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgDog)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgPig)).EndInit();

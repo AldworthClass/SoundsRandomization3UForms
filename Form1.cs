@@ -16,8 +16,10 @@ namespace WindowsFormsApp1
     {
         Random generator = new Random();
         SoundPlayer player;
+
         int score = 0;
-        int dog = 0, cat = 1, pig = 2, sound;
+        int dog = 0, cat = 1, pig = 2;
+        int randomSound;
 
         private void btnStop_Click(object sender, EventArgs e)
         {
@@ -26,38 +28,47 @@ namespace WindowsFormsApp1
 
         private void imgCat_Click(object sender, EventArgs e)
         {
-            if (sound == cat)
+            if (randomSound == cat)
             {
                 score += 1;
-                lblResults.Text = "Score: " + score + " - You are correct!";
+                lblResults.Text = "Score: " + score + ".  You are correct!";
             }
             else
-                lblResults.Text = "Score: " + score + " - You are incorrect!";
-
+            {
+                score -= 1;
+                lblResults.Text = "Score: " + score + ".  You are incorrect!";
+            }
+            DisableAnimalSelection();
         }
 
         private void imgPig_Click(object sender, EventArgs e)
         {
-            if (sound == pig)
+            if (randomSound == pig)
             {
                 score += 1;
-                lblResults.Text = "Score: " + score + " - You are correct!";
+                lblResults.Text = "Score: " + score + ".  You are correct!";
             }
             else
-                lblResults.Text = "Score: " + score + " - You are incorrect!";
-
+            {
+                score -= 1;
+                lblResults.Text = "Score: " + score + ".  You are incorrect!";
+            }
+            DisableAnimalSelection();
         }
 
         private void imgDog_Click(object sender, EventArgs e)
         {
-            if (sound == dog)
+            if (randomSound == dog)
             {
                 score += 1;
-                lblResults.Text = "Score: " + score + " - You are correct!";
+                lblResults.Text = "Score: " + score + ".  You are correct!";
             }
             else
-                lblResults.Text = "Score: " + score + " - You are incorrect!";
-
+            {
+                score -= 1;
+                lblResults.Text = "Score: " + score + ".  You are incorrect!";
+            }
+            DisableAnimalSelection();
         }
 
         public Form1()
@@ -65,28 +76,42 @@ namespace WindowsFormsApp1
             InitializeComponent();
         }
 
-        private void Form1_Load(object sender, EventArgs e)
+
+        // User will be able to select an animal
+        public void EnableAnimalSelection()
         {
-           
+            imgCat.Enabled = true;
+            imgDog.Enabled = true;
+            imgPig.Enabled = true;
+        }
+
+        // User will be unable to select an animal
+        public void DisableAnimalSelection()
+        {
+            imgCat.Enabled = false;
+            imgDog.Enabled = false;
+            imgPig.Enabled = false;
         }
 
         private void btnPlay_Click(object sender, EventArgs e)
         {
-            sound = generator.Next(3); // Pick a sound to play
-            if (sound == dog)
+            randomSound = generator.Next(3); // Pick a sound to play
+            
+            // Assigns the correct sound based on random generator
+            if (randomSound == dog)
             {
                 player = new SoundPlayer(Resources.woof);
             }
-            else if (sound == cat)
+            else if (randomSound == cat)
             {
                 player = new SoundPlayer(Resources.meow);
             }
-            else if (sound == pig) 
+            else if (randomSound == pig) 
             {
                 player = new SoundPlayer(Resources.oink);
             }
             player.Play();
-
+            EnableAnimalSelection(); // Sound has played, enables guessing
         }
     }
 }
